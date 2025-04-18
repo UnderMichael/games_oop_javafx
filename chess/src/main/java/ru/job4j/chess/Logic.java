@@ -21,12 +21,13 @@ public final class Logic {
 		int index = findBy(source);
 
 		Cell[] steps = figures[index].way(dest);
-		free(steps);
-		figures[index] = figures[index].copy(dest);
+		if (free(steps)) {
+			figures[index] = figures[index].copy(dest);
+		}
+
 	}
 
 	private boolean free(Cell[] steps) throws OccupiedCellException {
-		boolean result = true;
 		for (Cell step : steps) {
 			try {
 				findBy(step);
