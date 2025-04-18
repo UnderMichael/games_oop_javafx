@@ -24,6 +24,7 @@ public final class Logic {
 		if (free(steps)) {
 			figures[index] = figures[index].copy(dest);
 		}
+
 	}
 
 	private boolean free(Cell[] steps) throws OccupiedCellException {
