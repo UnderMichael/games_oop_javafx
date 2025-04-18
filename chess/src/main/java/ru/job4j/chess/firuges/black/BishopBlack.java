@@ -20,7 +20,8 @@ public class BishopBlack implements Figure {
 	public Cell[] way(Cell dest) {
 		if (!isDiagonal(dest)) {
 			throw new ImpossibleMoveException(
-					String.format("Could not way by diagonal from %s to %s", position, dest)
+					String.format("Could not way by diagonal from %s to %s",
+							position, dest)
 			);
 		}
 		int size = Math.abs(position.getX() - dest.getX());
@@ -39,7 +40,8 @@ public class BishopBlack implements Figure {
 
 	public boolean isDiagonal(Cell dest) {
 		return position.getX() != dest.getX()
-			   && Math.abs(position.getX() - dest.getX()) == Math.abs(position.getY() - dest.getY());
+			   && Math.abs(position.getX() - dest.getX())
+				  == Math.abs(position.getY() - dest.getY());
 	}
 
 	@Override
