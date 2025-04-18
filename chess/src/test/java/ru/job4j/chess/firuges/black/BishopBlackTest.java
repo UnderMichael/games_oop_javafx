@@ -42,8 +42,7 @@ class BishopBlackTest {
 		ImpossibleMoveException exception = assertThrows(
 				ImpossibleMoveException.class,
 				() -> bishop.way(Cell.G6));
-		assertThat(exception.getMessage())
-				.isEqualTo("Could not way by diagonal from C1 to G6");
+		assertThat(exception.getMessage()).isEqualTo("Could not way by diagonal from C1 to G6");
 
 	}
 }
