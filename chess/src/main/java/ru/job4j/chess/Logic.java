@@ -21,17 +21,17 @@ public final class Logic {
 		int index = findBy(source);
 
 		Cell[] steps = figures[index].way(dest);
-		if (free(steps)) {
-			figures[index] = figures[index].copy(dest);
-		}
+		free(steps);
+		figures[index] = figures[index].copy(dest);
+
 	}
 
 	private boolean free(Cell[] steps) throws OccupiedCellException {
-		for (Cell step : steps) {
-			try {
-				findBy(step);
-				throw new OccupiedCellException();
-			} catch (FigureNotFoundException e) {
+		for (Figure figures : figures) {
+			for (Cell step : steps) {
+				if (figures.position().equals(step)) {
+					throw new OccupiedCellException();
+				}
 			}
 		}
 		return true;
